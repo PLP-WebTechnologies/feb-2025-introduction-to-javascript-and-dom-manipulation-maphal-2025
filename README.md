@@ -1,26 +1,50 @@
-# Introduction to JavaScript and DOM Manipulation
+HTML
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Week5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-## Objectives
+    <h1 id="title">Welcome to PLP Web Development Assignment</h1>
+    <p id="description">This text will change dynamically.</p>
+    
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="addElement()">Add Element</button>
+    <button onclick="removeElement()">Remove Element</button>
 
-Write basic JavaScript functions.
-Manipulate the DOM dynamically.
-Respond to user interactions.
+    <div id="container"></div>
 
-## Instructions
+    <script src="Assignment Week5.js"></script>
+</body>
+</html>
 
-- Create a script.js file and link it to a HTML.
-- Structure the document using DOCTYPE, html, head, and body.
+JS
 
->[!NOTE]
->  - Write JavaScript that:
->  - Changes text content dynamically.
->  - Modifies CSS styles via JavaScript.
->  - Adds or removes an element when a button is clicked.
+function changeText() {
+    document.getElementById("description").textContent = "Text has been changed dynamically!";
+}
 
+function changeStyle() {
+    document.getElementById("title").style.color = "red";
+    document.getElementById("title").style.fontSize = "32px";
+}
 
-# Tasks
-- Create a well-structured HTML5 document.
-- Use at least 5 different HTML elements.
-- Ensure semantic correctness.
+function addElement() {
+    let newElement = document.createElement("p");
+    newElement.textContent = "Assignment has been added!";
+    newElement.id = "newElement";
+    document.getElementById("container").appendChild(newElement);
+}
 
-Happy Coding! 💻✨
+function removeElement() {
+    let elementToRemove = document.getElementById("newElement");
+    if (elementToRemove) {
+        elementToRemove.remove();
+    }
+}
+
